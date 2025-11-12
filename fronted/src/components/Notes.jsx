@@ -69,6 +69,10 @@ export class Notes extends React.Component {
     const data = await this.LoadNotes();
     if (data !== 0) {
       this.setState({ notes: data})
+    } else {
+      const tempNote = '(Временная запись из-за отсутствия связи с срвером. )' + noteText;
+      const ubdatedNotes = [...this.notes, {'id': noteId, 'content': tempNote}];
+      this.state({ notes: this.state })
     }
     
     e.target.reset();
