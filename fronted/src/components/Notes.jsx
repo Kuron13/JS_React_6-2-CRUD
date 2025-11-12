@@ -29,7 +29,7 @@ export class Notes extends React.Component {
     const response = await fetch(this.baseUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: {index}, content: {text} })
+      body: JSON.stringify({ id: index, content: text })
     });
     console.log('Сохранение данных', response.status)
     return response;
@@ -111,7 +111,7 @@ export class Notes extends React.Component {
           <button className='btn-upd' onClick={() => this.LoadNotes()}>🗘</button>
         </div>
         <div className='notes-container'>
-          {notes.length > 0 && notes.map((note) => (<this.NoteShow key={note.id} note={note.content.text} onDelete={() => this.deleteNote(note.id)} />))}
+          {notes.length > 0 && notes.map((note) => (<this.NoteShow key={note.id} note={note.content} onDelete={() => this.deleteNote(note.id)} />))}
         </div>
         {this.FormAddNote()}
       </div>
