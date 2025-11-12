@@ -46,8 +46,14 @@ jobs:
         with:
           node-version: 22.14.0
           cache: 'yarn'
-      - run: yarn
-      - run: yarn build
+      - name: Install dependencies (fronted)
+        run: |
+          cd fronted
+          yarn
+      - name: Build fronted
+        run: |
+          cd fronted
+          yarn build
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
