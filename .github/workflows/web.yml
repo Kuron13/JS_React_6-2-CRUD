@@ -28,10 +28,11 @@ jobs:
         with:
           node-version: 22.14.0
           cache: 'yarn'
-      - run: cd fronted && yarn
-      - run: cd fronted && yarn lint
+          cache-dependency-path: fronted/yarn.lock
+      - run: cd fronted && yarn --frozen-lockfile && yarn
+      - run: cd fronted && yarn --frozen-lockfile && yarn lint
 
-  build:
+  build-and-deploy:
     needs: [eslint]
 
     environment:
@@ -46,10 +47,11 @@ jobs:
         with:
           node-version: 22.14.0
           cache: 'yarn'
+          cache-dependency-path: fronted/yarn.lock
       - name: Install dependencies (fronted)
         run: |
           cd fronted
-          yarn
+          yarn --frozen-lockfile
       - name: Build fronted
         run: |
           cd fronted
