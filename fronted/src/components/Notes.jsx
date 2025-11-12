@@ -67,7 +67,7 @@ export class Notes extends React.Component {
     await this.SaveNote(noteId, noteText)
     
     const data = await this.LoadNotes();
-    if (data !== 0) {
+    if (data.length !== 0) {
       this.setState({ notes: data})
     } else {
       const tempNote = '(Временная запись из-за отсутствия связи с срвером. )' + noteText;
