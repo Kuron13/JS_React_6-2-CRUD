@@ -28,8 +28,8 @@ jobs:
         with:
           node-version: 22.14.0
           cache: 'yarn'
-      - run: yarn
-      - run: yarn lint
+      - run: cd fronted && yarn
+      - run: cd fronted && yarn lint
 
   build:
     needs: [eslint]
