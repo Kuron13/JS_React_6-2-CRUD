@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: black;
+}
+
+.form-container {
+  display: flex;
+  min-width: 500px;
+  max-width: 1000px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0px 10px 0px;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  min-height: 100px;
+  justify-content: flex-start;
+  aign-items: center;
+  margin: 20px 30px 10px 0px;
+  position: relative;
+}
+
+.note-header {
+  display: flex;
+}
+
+.note-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-right: 15px;
+}
+
+.note-box {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  min-height: 80px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.form {
+  display: flex; 
+  width: 400px;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: relative;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-zone {
+  height: 200px;
+  font-size: 16px;
+  padding: 8px 12px;
+  border: 1px solid black;
+  width: 400px;
+}
+
+.btn-upd {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
+  color: green;
+  font-size: 45px;
+  padding: 0px 0px 5px 0px;
+}
+
+.btn-add {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -25px;
+  margin: 10px;
+  font-size: 45px;
+  padding: 0px 0px 5px 5px;
+}
+
+.btn-del {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 50px;
+  background: white;
+  cursor: pointer;
+  color: red;
+  position: absolute;
+  right: -15px;
+  top: -15px;
+}
