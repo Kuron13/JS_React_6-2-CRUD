@@ -44,12 +44,12 @@ export class Notes extends React.Component {
       headers: { 'Content-Type': 'application/json' }
     });
     console.log('Удаление данных', response.status);
-    this.setState ({ notes: this.state.notes.filter((el, i) => el.id !== index) });
+    this.setState ({ notes: this.state.notes.filter((el, _) => el.id !== index) });
     return response;
   };
 
   async componentDidMount() {
-    const data = this.LoadNotes()
+    this.LoadNotes()
   }
 
   async handleSubmit(e) {
@@ -64,7 +64,7 @@ export class Notes extends React.Component {
       return;
     }
     
-    const res = await this.SaveNote(noteId, noteText)
+    await this.SaveNote(noteId, noteText)
 
     const data = await this.LoadNotes();
     this.setState({ notes: data})
@@ -109,7 +109,7 @@ export class Notes extends React.Component {
           <button className='btn-upd' onClick={() => this.LoadNotes()}>🗘</button>
         </div>
         <div className='notes-container'>
-          {notes.length > 0 && notes.map((note, i) => (<this.NoteShow key={note.id} note={note.content.text} onDelete={() => this.deleteNote(note.id)} />))}
+          {notes.length > 0 && notes.map((note, _) => (<this.NoteShow key={note.id} note={note.content.text} onDelete={() => this.deleteNote(note.id)} />))}
         </div>
         {this.FormAddNote()}
       </div>
