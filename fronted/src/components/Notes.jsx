@@ -5,7 +5,7 @@ export class Notes extends React.Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [{id: 0, content: 'Карточка номер один.'}, {id: 1, content: 'Карточка номер два.'}]
     }  
 
     this.baseUrl = 'http://localhost:7070/notes'    
@@ -22,9 +22,6 @@ export class Notes extends React.Component {
     const response = await fetch(this.baseUrl);
     console.log('Загрузка данных', response.status)
     const data = await response.json();
-
-    this.setState({ notes: data })
-
     return data;
   }
 
@@ -49,7 +46,10 @@ export class Notes extends React.Component {
   };
 
   async componentDidMount() {
-    this.LoadNotes()
+    const data = await this.LoadNotes()
+    if (data.length !== 0) {
+      this.setState({ notes: data })
+    }
   }
 
   async handleSubmit(e) {
@@ -65,9 +65,11 @@ export class Notes extends React.Component {
     }
     
     await this.SaveNote(noteId, noteText)
-
+    
     const data = await this.LoadNotes();
-    this.setState({ notes: data})
+    if (data !== 0) {
+      this.setState({ notes: data})
+    }
     
     e.target.reset();
   }
